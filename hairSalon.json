@@ -1,0 +1,35 @@
+[
+    {
+        "name": "Vadász Juli",
+        "image": "vadasz_juli.jpg",
+        "position": "Fodrász",
+        "description": "Minden haj, ugyan csak egy kis százalékban, de aranyat ér!",
+        "openDays": [
+            { "day": "Hétfő", "dayIndex": 1, "oHours": ["15:00", "15:30", "16:00", "16:30", "17:00"] },
+            { "day": "Kedd", "dayIndex": 2, "oHours": ["8:00", "8:30", "9:00", "9:30"] },
+            { "day": "Szerda", "dayIndex": 3, "oHours": ["9:00", "9:30", "10:00", "10:30"] },
+            { "day": "Szombat", "dayIndex": 6, "oHours": ["7:00", "7:30", "8:00", "8:30"] }
+        ],
+        "appointments": [
+            { "day": "Szerda", "dayIndex": 3, "aDate": "2023-05-24", "aName": "Kovács Izabella", "aHour": "9:00" },
+            { "day": "Szerda", "dayIndex": 3, "aDate": "2023-05-24", "aName": "Jakab Gabi", "aHour": "10:00" },
+            { "day": "Szerda", "dayIndex": 3, "aDate": "2023-05-24", "aName": "Jakab Gabi", "aHour": "10:30" }
+        ]
+    },
+    {
+        "name": "Vörös Anna",
+        "image": "voros_anna.jpg",
+        "position": "Hajszobrász",
+        "description": "Külső teszi az embert.",
+        "openDays": [
+            { "day": "Kedd", "dayIndex": 2, "oHours": ["10:00", "10:30", "11:00", "11:30"] },
+            { "day": "Péntek", "dayIndex": 5, "oHours": ["15:00", "15:30", "16:00", "16:30"] },
+            { "day": "Vasárnap", "dayIndex": 0, "oHours": ["16:00", "16:30"] }
+        ],
+        "appointments": [
+            { "day": "Kedd", "dayIndex": 4, "aDate": "2023-05-25", "aName": "Kovács Izabella", "aHour": "10:00" },
+            { "day": "Vasárnap", "dayIndex": 0, "aDate": "2023-05-28", "aName": "Benedek Elek", "aHour": "16:30" },
+            { "day": "Péntek", "dayIndex": 5, "aDate": "2023-05-26", "aName": "Sándor Matilda", "aHour": "15:30" }
+        ]
+    }
+]

@@ -1,0 +1,447 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;700&display=swap");
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+:root {
+    --bg-blue: rgb(86, 134, 223);
+    --bg-orange: rgb(226, 103, 55);
+    --bg-yellow: rgb(255, 243, 225);
+    --bg-green: rgb(38, 187, 137);
+    --txt-white: rgb(218, 242, 248);
+    --br-blue: rgb(154, 193, 230);
+    --sh-col: rgb(131, 119, 111);
+    --t-all: all 0.2s ease;
+    /* --pse-content: ""; */
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--bg-blue);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--bg-orange);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--txt-white);
+}
+
+/* 
+----------------------------------------------------------
+    BASE SETUP
+----------------------------------------------------------
+*/
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    background-color: bisque;
+    font-family: "Roboto", sans-serif;
+}
+
+main {
+    flex: 1 0 auto;
+    margin: 5rem 3rem;
+}
+
+header,
+footer {
+    color: var(--txt-white);
+}
+
+header {
+    background-color: var(--bg-orange);
+    padding: 1rem 2rem;
+    margin-bottom: 2rem;
+}
+
+footer {
+    flex-shrink: 0;
+    background-color: var(--bg-orange);
+    padding: 1rem 2rem;
+    margin-top: 2rem;
+}
+
+ul {
+    list-style: none;
+    display: flex;
+}
+
+/* 
+----------------------------------------------------------
+    HEADER
+----------------------------------------------------------
+*/
+
+nav {
+    display: flex;
+    align-items: center;
+}
+
+h1 {
+    display: flex;
+    text-align: left;
+}
+
+nav ul {
+    margin-left: auto;
+    gap: 2rem;
+    font-size: 1.2rem;
+    align-items: center;
+}
+
+nav ul li {
+    border: 2px solid transparent;
+    user-select: none;
+}
+
+.povSelected {
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+nav ul li:not(.povSelected):hover {
+    border-bottom: 2px solid var(--txt-white);
+    cursor: pointer;
+}
+
+/* 
+----------------------------------------------------------
+    MODAL
+----------------------------------------------------------
+*/
+
+#modal {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+    background-color: rgba(0, 0, 0, 45%);
+}
+
+.form {
+    max-width: 50rem;
+    min-height: 31rem;
+    height: auto;
+    margin-inline: auto;
+    position: relative;
+    border-radius: 10px;
+    text-align: center;
+    background-color: var(--bg-yellow);
+}
+
+.form span {
+    font-weight: bold;
+}
+
+.formTitle {
+    padding: 20px;
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+    font-weight: bold;
+}
+
+.formDetails {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    align-items: center;
+}
+
+.formDate div {
+    margin-top: 0.5rem;
+    font-size: 1.2rem;
+}
+
+#fName,
+#lName {
+    width: 50%;
+}
+
+/* 
+----------------------------------------------------------
+    BARBER CARD
+----------------------------------------------------------
+*/
+
+#barbers {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 5rem;
+}
+
+.barberCard,
+.barberSelected {
+    text-align: center;
+    border-radius: 10px;
+    padding: 20px;
+    background-color: var(--bg-yellow);
+    box-shadow: 5px 5px 20px 5px var(--sh-col);
+}
+
+.barberCard {
+    max-width: 20rem;
+    width: 20rem;
+    position: relative;
+}
+
+.barberSelected {
+    max-width: 50rem;
+    width: 50rem;
+    min-height: 31rem;
+    height: auto;
+    margin-inline: auto;
+    position: relative;
+}
+
+.barberSelected .barberButton {
+    left: 30.15rem;
+}
+
+.barberImg img {
+    max-width: 170px;
+    height: auto;
+    border-radius: 100%;
+    box-shadow: 5px 5px 20px 5px var(--sh-col);
+    position: relative;
+    bottom: 60px;
+}
+
+.barberDetails {
+    position: relative;
+    bottom: 30px;
+    margin-bottom: 40px;
+}
+
+.barberDetails > * {
+    margin-bottom: 10px;
+}
+
+.barberName {
+    font-weight: bold;
+    font-size: 1.3rem;
+}
+
+.barberPos {
+    font-style: italic;
+    margin-bottom: 1rem;
+}
+
+/* 
+----------------------------------------------------------
+    BUTTONS
+----------------------------------------------------------
+*/
+
+.barberButton,
+.backButton,
+#formButton {
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    bottom: 10px;
+    left: 5rem;
+    width: 50%;
+    padding: 10px 0;
+    font-weight: bold;
+    background-color: var(--bg-orange);
+    color: var(--txt-white);
+    border-radius: 5px;
+    cursor: pointer;
+    user-select: none;
+    transition: var(--t-all);
+}
+
+#formButton {
+    left: auto;
+}
+
+#formCloseButton {
+    position: absolute;
+    right: -5rem;
+    top: -4rem;
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: var(--txt-white);
+    background-color: var(--bg-orange);
+    padding: 0.2rem 1rem;
+    border-radius: 50%;
+    cursor: pointer;
+    user-select: none;
+    transition: var(--t-all);
+}
+
+.barberButtonDisabled {
+    opacity: 50%;
+    cursor: default;
+}
+
+.barberButton:not(.barberButtonDisabled):hover,
+.backButton:hover,
+.daySelect:hover,
+#formButton:hover,
+#formCloseButton:hover {
+    background-color: var(--bg-blue);
+}
+
+/* 
+----------------------------------------------------------
+    BARBER CARD USER SELECTED
+----------------------------------------------------------
+*/
+
+.barberSelected .barberButton,
+.barberSelected .backButton {
+    width: 25%;
+}
+
+input[type="date"] {
+    background-color: var(--bg-orange);
+    padding: 15px;
+    font-family: "Roboto Mono", monospace;
+    color: var(--txt-white);
+    font-size: 18px;
+    font-weight: bold;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+}
+::-webkit-calendar-picker-indicator {
+    background-color: var(--txt-white);
+    padding: 5px;
+    cursor: pointer;
+    border-radius: 3px;
+}
+
+.barberDay,
+.barberTimes {
+    width: 50%;
+    margin-inline: auto;
+}
+
+.barberDay {
+    font-size: 1.1rem;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: 2px solid var(--bg-orange);
+}
+
+.barberTimes {
+    text-align: left;
+    font-weight: bold;
+}
+
+#barberAppointments ul {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    width: 50%;
+    margin-inline: auto;
+    gap: 1rem;
+    justify-content: center;
+}
+
+#barberAppointments ul li {
+    background-color: var(--bg-green);
+    color: var(--txt-white);
+    font-weight: bold;
+    max-height: 2.4rem;
+    padding: 10px;
+    border-radius: 5px;
+    user-select: none;
+    transition: var(--t-all);
+}
+
+#barberAppointments ul li:not(.appointmentSelected):not(.barberButtonDisabled):hover {
+    box-shadow: 0 0 0 5px var(--bg-blue);
+    cursor: pointer;
+}
+
+.appointmentSelected {
+    box-shadow: 0 0 0 5px var(--bg-orange);
+}
+
+/* 
+----------------------------------------------------------
+    BARBER CARD ADMIN SELECTED
+----------------------------------------------------------
+*/
+
+.barberDates {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.daySelect {
+    background-color: var(--bg-orange);
+    color: var(--txt-white);
+    font-weight: bold;
+    width: 10rem;
+    display: flex;
+    justify-content: center;
+    margin-inline: auto;
+    padding: 1rem 0;
+    border-radius: 5px;
+    cursor: pointer;
+    user-select: none;
+    transition: var(--t-all);
+}
+
+#daySelectOptions {
+    position: absolute;
+    top: 114px;
+    left: 110px;
+    display: none;
+    flex-direction: column;
+    width: 10rem;
+    margin-inline: auto;
+    background-color: var(--bg-blue);
+    color: var(--txt-white);
+    max-height: 7rem;
+    overflow: hidden;
+    overflow-y: scroll;
+}
+
+#daySelectOptions span {
+    border-top: 2px solid var(--br-blue);
+    padding: 8px 0;
+    user-select: none;
+    transition: var(--t-all);
+}
+
+#daySelectOptions span:hover {
+    font-weight: bold;
+    transform: translateX(10px);
+}
+
+/* 
+----------------------------------------------------------
+    INTERACTIONS
+----------------------------------------------------------
+*/
+
+.btnSelected {
+    background-color: var(--bg-blue);
+    border-radius: 5px 5px 0 0;
+    border-bottom: 5px solid var(--bg-blue);
+}
